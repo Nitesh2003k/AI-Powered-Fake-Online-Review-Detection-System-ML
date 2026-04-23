@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Review Detector | History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .history-table th, .history-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .history-table th {
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .history-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .badge-fake {
+            background: rgba(255, 75, 75, 0.2);
+            color: #ff8a8a;
+            border: 1px solid rgba(255, 75, 75, 0.3);
+        }
+        .badge-real {
+            background: rgba(0, 230, 118, 0.2);
+            color: #69f0ae;
+            border: 1px solid rgba(0, 230, 118, 0.3);
+        }
+        .text-truncate {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">ReviewGuard AI</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="review.html">Check Review</a></li>
+                <li><a href="history.html" class="active">History</a></li>
+                <li><a href="index.html" class="btn btn-outline" style="padding: 8px 20px;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container animate-up">
+            <h2 style="margin-bottom: 10px;">Analysis History</h2>
+            <p style="margin-bottom: 30px;">View your past review analyses and their results.</p>
+
+            <div class="glass-panel" style="overflow-x: auto;">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Review Snippet</th>
+                            <th>Result</th>
+                            <th>Confidence</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mar 18, 2026</td>
+                            <td class="text-truncate">"This is the most amazing product I have ever..."</td>
+                            <td><span class="badge badge-fake">Fake</span></td>
+                            <td>94%</td>
+                            <td><a href="review.html" style="color: var(--primary-color);">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mar 17, 2026</td>
+                            <td class="text-truncate">"I bought this for my daughter and she liked the color but..."</td>
+                            <td><span class="badge badge-real">Real</span></td>
+                            <td>88%</td>
+                            <td><a href="review.html" style="color: var(--primary-color);">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mar 16, 2026</td>
+                            <td class="text-truncate">"Do not buy this! It broke after one week of use and..."</td>
+                            <td><span class="badge badge-real">Real</span></td>
+                            <td>91%</td>
+                            <td><a href="review.html" style="color: var(--primary-color);">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mar 15, 2026</td>
+                            <td class="text-truncate">"Best purchase ever! Totally worth the money wow..."</td>
+                            <td><span class="badge badge-fake">Fake</span></td>
+                            <td>97%</td>
+                            <td><a href="review.html" style="color: var(--primary-color);">View Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; nitesh kumar yadav</p>
+        <p style="margin-top: 5px; font-size: 0.85rem; color: var(--primary-color);">MCA Final Year Project</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

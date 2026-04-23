@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Review Detector | Check Review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .result-card {
+            display: none; /* hidden by default */
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        .result-fake {
+            background: rgba(255, 75, 75, 0.1);
+            border: 1px solid var(--danger-color);
+        }
+        .result-real {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid var(--success-color);
+        }
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .fake-score {
+            border: 6px solid var(--danger-color);
+            color: var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">ReviewGuard AI</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="review.html" class="active">Check Review</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="index.html" class="btn btn-outline" style="padding: 8px 20px;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center animate-up">
+                <h2>Analyze a Review</h2>
+                <p>Paste the text of the review below to determine its authenticity.</p>
+            </div>
+
+            <div class="glass-panel animate-up delay-1" style="padding: 30px; margin-top: 20px;">
+                <form id="analyzeForm">
+                    <div class="form-group">
+                        <label for="reviewText">Review Text</label>
+                        <textarea id="reviewText" rows="6" placeholder="Paste the review here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 16px;">Analyze with AI</button>
+                </form>
+            </div>
+
+            <div id="resultSection" class="result-card result-fake">
+                <div class="score-circle fake-score">94%</div>
+                <h3 style="color: var(--danger-color); margin-bottom: 15px;">High Probability of Fake Review</h3>
+                <div id="xaiSection" style="margin-top: 25px; text-align: left; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; display: none;">
+                    <h4 style="margin-bottom: 12px; font-size: 1.1rem;">AI Explainability Analysis</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px; color: var(--text-muted); line-height: 1.5;">
+                        We analyze specific words within the text to determine authenticity.<br>
+                        Words highlighted in <span style="color: var(--danger-color); font-weight: bold;">red</span> indicate generic or suspicious patterns.<br>
+                        Words highlighted in <span style="color: var(--success-color); font-weight: bold;">green</span> indicate specific, authentic details.
+                    </p>
+                    <div id="highlightedReview" style="padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; font-style: italic; line-height: 1.6; border-left: 4px solid var(--primary-color);">
+                        <!-- Highlighted text injected here -->
+                    </div>
+                </div>
+                <div style="margin-top: 25px;">
+                    <button id="downloadPdfBtn" class="btn btn-outline" style="width: 100%; border-color: var(--primary-color); color: var(--primary-color);">Download PDF Report</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; nitesh kumar yadav</p>
+        <p style="margin-top: 5px; font-size: 0.85rem; color: var(--primary-color);">MCA Final Year Project</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
